@@ -41,6 +41,10 @@ public static class Helpers
         EventSystem.current.RaycastAll(eventDataCurrentPosition, results);
         return results.Count > 0;
     }
+    public static bool CoinFlip()
+    {
+        return Random.Range(0, 2) == 0;
+    }
     private static Matrix4x4 _isoMatrix = Matrix4x4.Rotate(Quaternion.Euler(0, 45, 0));
     public static Vector3 ToIso(this Vector3 input) => _isoMatrix.MultiplyPoint3x4(input);
 }
