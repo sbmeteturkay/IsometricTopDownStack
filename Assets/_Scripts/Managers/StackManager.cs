@@ -29,7 +29,7 @@ namespace MeteTurkay{
             stackUnit.DOJump(itemHolderTransform.position+new Vector3(0,nextPositionY,0),2f,1,1f).OnComplete(
             () =>
                 {
-                    stackUnit.DORotate(new Vector3(0, 180, 0), 0.4f).SetLoops(2,LoopType.Incremental).OnComplete(()=> {
+                    stackUnit.DORotate(new Vector3(0, 180, 0), 0.2f,RotateMode.FastBeyond360).SetLoops(2,LoopType.Incremental).OnComplete(()=> {
 
                         stackUnit.SetParent(itemHolderTransform, true);
                         stackUnit.DOLocalMove(Vector3.zero + new Vector3(0, nextPositionY, 0), 1f);
