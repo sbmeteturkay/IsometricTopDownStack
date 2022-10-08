@@ -14,7 +14,6 @@ namespace MeteTurkay{
         {
             float xForce = Random.Range(sideForce/2, sideForce);
             xForce *= Helpers.CoinFlip()?-1:1;
-            print(xForce);
             //we dont need down force, so no minus
             float yForce = Random.Range(upForce / 2f, upForce);
             float zForce = Helpers.CoinFlip() ? -Random.Range(sideForce / 2, sideForce) : Random.Range(sideForce / 2, sideForce);
