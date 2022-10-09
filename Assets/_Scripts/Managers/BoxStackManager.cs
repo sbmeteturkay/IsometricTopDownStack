@@ -39,13 +39,13 @@ namespace MeteTurkay{
             print("boxStack add item called");
             float nextPositionY = stackSpacing * numberOfItemsHolding;
             numberOfItemsHolding++;
-            stackUnit.DOJump(itemHolderTransform.position + new Vector3(0, nextPositionY, 0), 2f, 1, 1f).OnComplete(
+            stackUnit.DOJump(itemHolderTransform.localPosition + new Vector3(0, nextPositionY, 0), 1f, 1, 1f).OnComplete(
             () =>
             {
                 stackUnit.DORotate(new Vector3(0, 180, 0), 0.2f, RotateMode.FastBeyond360).SetLoops(2, LoopType.Incremental).OnComplete(() => {
 
                     stackUnit.SetParent(itemHolderTransform, true);
-                    stackUnit.DOLocalMove(Vector3.zero + new Vector3(0, nextPositionY, 0), 1f).OnComplete(() => {
+                    stackUnit.DOLocalMove(Vector3.zero + new Vector3(0, nextPositionY, 0), 0.5f).OnComplete(() => {
                         stackUnit.localRotation = Quaternion.identity;
                         collectedStacks.Add(stackUnit.gameObject);
                     });
