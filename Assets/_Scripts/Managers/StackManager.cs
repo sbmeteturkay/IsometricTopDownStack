@@ -26,7 +26,6 @@ namespace MeteTurkay{
         private void Update()
         {
             MoveStackObjects(moving);
-            itemHolderTransform.transform.position = Vector3.Lerp(itemHolderTransform.transform.position, player.position, 1);
         }
 
         //we call this from joystick change event on scene 0, in UIVirtualJoystick.cs

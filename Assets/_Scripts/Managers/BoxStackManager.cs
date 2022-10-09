@@ -10,6 +10,7 @@ namespace MeteTurkay{
         List<GameObject> stacks;
         public override void MoveStackObjects(bool moving)
         {
+            itemHolderTransform.transform.position = Vector3.Lerp(itemHolderTransform.transform.position, player.position, 1);
             for (int i = 1; i < collectedStacks.Count; i++)
             {
                 if (moving)
