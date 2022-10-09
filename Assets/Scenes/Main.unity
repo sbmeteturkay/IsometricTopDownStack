@@ -234,7 +234,7 @@ MonoBehaviour:
   onPlayerEnter:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1283201999}
+      - m_Target: {fileID: 1283202001}
         m_TargetAssemblyTypeName: MeteTurkay.StackManager, Assembly-CSharp
         m_MethodName: StartStacks
         m_Mode: 1
@@ -246,6 +246,59 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!1 &58797638
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 58797639}
+  - component: {fileID: 58797640}
+  m_Layer: 0
+  m_Name: FollowerStackManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &58797639
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 58797638}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1182088842}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &58797640
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 58797638}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 381051ed73c7dee4b9118e78cabf6fb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemHolderTransform: {fileID: 1852882999}
+  stackSpacing: 0.25
+  numberOfItemsHolding: 0
+  collectedStacks: []
+  player: {fileID: 1579322355}
+  moving: 0
+  joystickInput: {x: 0, y: 0}
+  isLookingFoward: 0
+  isLookingLeft: 0
+  stackFloatingValue: {x: 0.1, y: -0.1}
 --- !u!1 &92499011
 GameObject:
   m_ObjectHideFlags: 0
@@ -988,6 +1041,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1283202000}
+  - {fileID: 58797639}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1000,32 +1054,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1283202000}
-  - component: {fileID: 1283201999}
+  - component: {fileID: 1283202001}
   m_Layer: 0
-  m_Name: StackManager
+  m_Name: BoxStackManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1283201999
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1283201998}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 699d5592ee72eb44e81b3e8bee5b8b16, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemHolderTransform: {fileID: 152388949}
-  stackSpacing: 0.3
-  player: {fileID: 1765435837}
-  moving: 0
-  isLookingFoward: 0
-  isLookingLeft: 0
 --- !u!4 &1283202000
 Transform:
   m_ObjectHideFlags: 0
@@ -1040,6 +1076,28 @@ Transform:
   m_Father: {fileID: 1182088842}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1283202001
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1283201998}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66669e6d2509f2245afefb6b32d2a798, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemHolderTransform: {fileID: 152388949}
+  stackSpacing: 0.3
+  numberOfItemsHolding: 0
+  collectedStacks: []
+  player: {fileID: 1765435837}
+  moving: 0
+  joystickInput: {x: 0, y: 0}
+  isLookingFoward: 0
+  isLookingLeft: 0
+  stackFloatingValue: {x: 0.1, y: -0.1}
 --- !u!1001 &1365558446
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1213,18 +1271,30 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8498310656096498452, guid: 3f0f6476aa9c4da42bfdc722bb8f61bc, type: 3}
       propertyPath: joystickOutputEvent.m_PersistentCalls.m_Calls.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8498310656096498452, guid: 3f0f6476aa9c4da42bfdc722bb8f61bc, type: 3}
       propertyPath: joystickOutputEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8498310656096498452, guid: 3f0f6476aa9c4da42bfdc722bb8f61bc, type: 3}
+      propertyPath: joystickOutputEvent.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8498310656096498452, guid: 3f0f6476aa9c4da42bfdc722bb8f61bc, type: 3}
       propertyPath: joystickOutputEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 1283201999}
+      objectReference: {fileID: 1283202001}
+    - target: {fileID: 8498310656096498452, guid: 3f0f6476aa9c4da42bfdc722bb8f61bc, type: 3}
+      propertyPath: joystickOutputEvent.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 58797640}
     - target: {fileID: 8498310656096498452, guid: 3f0f6476aa9c4da42bfdc722bb8f61bc, type: 3}
       propertyPath: joystickOutputEvent.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8498310656096498452, guid: 3f0f6476aa9c4da42bfdc722bb8f61bc, type: 3}
+      propertyPath: joystickOutputEvent.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8498310656096498452, guid: 3f0f6476aa9c4da42bfdc722bb8f61bc, type: 3}
@@ -1232,11 +1302,23 @@ PrefabInstance:
       value: GetRotation
       objectReference: {fileID: 0}
     - target: {fileID: 8498310656096498452, guid: 3f0f6476aa9c4da42bfdc722bb8f61bc, type: 3}
+      propertyPath: joystickOutputEvent.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: GetRotation
+      objectReference: {fileID: 0}
+    - target: {fileID: 8498310656096498452, guid: 3f0f6476aa9c4da42bfdc722bb8f61bc, type: 3}
       propertyPath: joystickOutputEvent.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
       value: MeteTurkay.StackManager, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 8498310656096498452, guid: 3f0f6476aa9c4da42bfdc722bb8f61bc, type: 3}
+      propertyPath: joystickOutputEvent.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: MeteTurkay.StackManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8498310656096498452, guid: 3f0f6476aa9c4da42bfdc722bb8f61bc, type: 3}
       propertyPath: joystickOutputEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 8498310656096498452, guid: 3f0f6476aa9c4da42bfdc722bb8f61bc, type: 3}
+      propertyPath: joystickOutputEvent.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 8859292145311893623, guid: 3f0f6476aa9c4da42bfdc722bb8f61bc, type: 3}
@@ -1322,6 +1404,36 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!1 &1579322354
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1579322355}
+  m_Layer: 0
+  m_Name: Follow (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1579322355
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1579322354}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.665, z: -0.741}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1766611641}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1727938692
 GameObject:
   m_ObjectHideFlags: 0
@@ -1390,6 +1502,36 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1244265662916728940, guid: 3f0f6476aa9c4da42bfdc722bb8f61bc, type: 3}
   m_PrefabInstance: {fileID: 1430962538}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1852882998
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1852882999}
+  m_Layer: 0
+  m_Name: FollowParent
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1852882999
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1852882998}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2080685436
 GameObject:
   m_ObjectHideFlags: 0
