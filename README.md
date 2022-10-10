@@ -1,7 +1,7 @@
 # IsometricTopDownStack
-Used assets:
-Starter Assets - Third Person Character Controller: https://assetstore.unity.com/packages/essentials/starter-assets-third-person-character-controller-196526
-Generic Unity Object Pooler: https://github.com/Rfrixy/Generic-Unity-Object-Pooler
+# Used assets:
+1) Starter Assets - Third Person Character Controller: https://assetstore.unity.com/packages/essentials/starter-assets-third-person-character-controller-196526
+2) Generic Unity Object Pooler: https://github.com/Rfrixy/Generic-Unity-Object-Pooler
 
 ## Gameplay
 https://user-images.githubusercontent.com/44952253/194769620-7c7913df-758b-44e7-bbc7-a80969771b7c.mp4
