@@ -8,9 +8,10 @@ namespace MeteTurkay{
 	{
         public Transform itemHolderTransform;
         public float stackSpacing=0.25f;
-        public int numberOfItemsHolding = 0;
-        public List<GameObject> collectedStacks=new List<GameObject>();
         public Transform player;
+        [Header("Debug")]
+        public int numberOfItemsHolding = 0;
+        public List<GameObject> collectedStacks = new List<GameObject>();
         public bool moving = false;
         public Vector2 joystickInput;
         public bool isLookingFoward = false;
@@ -18,9 +19,9 @@ namespace MeteTurkay{
         public Vector2 stackFloatingValue = new Vector2(0.1f, -0.1f);
         private void Start()
         {
-            SubStackUnity();
+            SubStackUnit();
         }
-        abstract public void SubStackUnity();
+        abstract public void SubStackUnit();
         abstract public void AddNewItem(Transform stackUnit);
         abstract public void MoveStackObjects(bool moving);
         private void Update()

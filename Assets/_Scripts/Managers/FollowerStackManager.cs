@@ -6,7 +6,7 @@ using System.Collections.Generic;
 namespace MeteTurkay{
 	public class FollowerStackManager :StackManager
 	{
-        public override void SubStackUnity()
+        public override void SubStackUnit()
         {
             FollowerStackUnit.PlayerContact += AddNewItem;
         }
@@ -31,7 +31,7 @@ namespace MeteTurkay{
                     //rotate to look at the player
                     collectedStacks[i].transform.rotation = Quaternion.Slerp(collectedStacks[i].transform.rotation, Quaternion.LookRotation(collectedStacks[i - 1].transform.position - collectedStacks[i].transform.position), 10 * Time.deltaTime);
 
-                    if (distance > 0.4f)
+                    if (distance > 0.6f)
                     {
                         //move towards the player
                         collectedStacks[i].transform.position += 8 * Time.deltaTime * collectedStacks[i].transform.forward;

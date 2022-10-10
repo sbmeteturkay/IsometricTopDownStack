@@ -7,7 +7,7 @@ using System.Collections.Generic;
 namespace MeteTurkay{
 	public class BoxStackManager : StackManager
     {
-        List<GameObject> stacks;
+        List<GameObject> allStacks;
         public override void MoveStackObjects(bool moving)
         {
             itemHolderTransform.transform.position = Vector3.Lerp(itemHolderTransform.transform.position, player.position, 1);
@@ -16,12 +16,10 @@ namespace MeteTurkay{
                 if (moving)
                 {
                     Vector3 pos = collectedStacks[i].transform.localPosition;
-                    //stackFloatingValue.x = isLookingLeft ? 0.1f : -0.1f;
                     stackFloatingValue.x = isLookingFoward ? Mathf.Clamp(joystickInput.y / 100, 0, 0.05f) : Mathf.Clamp(joystickInput.y / 100, -0.05f, 0f);
                     stackFloatingValue.y = !isLookingLeft ? Mathf.Clamp(joystickInput.x / 100, 0, 0.05f) : Mathf.Clamp(joystickInput.x / 100, -0.05f, 0f);
                     pos.x = (collectedStacks[i - 1].transform.localPosition.x - stackFloatingValue.y) * i / 10;
                     pos.z = (collectedStacks[i - 1].transform.localPosition.z - stackFloatingValue.x) * i / 10;
-                    //collectedStacks[i - 1].transform.localPosition.z+stackFloatingValue.x* (Mathf.Abs(joystickInput.y)%10);
                     collectedStacks[i].transform.localPosition = pos;
                 }
                 else
@@ -53,21 +51,21 @@ namespace MeteTurkay{
             }
              );
         }
-        public override void SubStackUnity()
+        public override void SubStackUnit()
         {
             BoxStackUnit.PlayerContact += AddNewItem;
         }
         public void GetStacks()
         {
-            stacks = ObjectPooler.SharedInstance.GetAllPooledObjects(0);
+            allStacks = ObjectPooler.SharedInstance.GetAllPooledObjects(0);
         }
         //called from red cube on scene 1 with ActionOnTrigger.cs
         public void StartStacks()
         {
             GetStacks();
-            for (int i = 0; i < stacks.Count; i++)
+            for (int i = 0; i < allStacks.Count; i++)
             {
-                stacks[i].SetActive(true);
+                allStacks[i].SetActive(true);
             }
         }
     }

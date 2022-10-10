@@ -9,10 +9,10 @@ namespace MeteTurkay{
 		public static event Action<Transform> PlayerContact;
         public override void StackCollected()
         {
+            collision.enabled = false;
             isCollected = true;
             rb.isKinematic = true;
             trigger.enabled = false;
-            collision.enabled = false;
             InvokeContact(PlayerContact);
         }
     }

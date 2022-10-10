@@ -18,7 +18,7 @@ namespace MeteTurkay{
             float yForce = Random.Range(upForce / 2f, upForce);
             float zForce = Helpers.CoinFlip() ? -Random.Range(sideForce / 2, sideForce) : Random.Range(sideForce / 2, sideForce);
             zForce *= Helpers.CoinFlip() ? -1 : 1;
-
+            rb.gameObject.transform.Rotate(new Vector3(Random.Range(0, 180), Random.Range(0, 180), Random.Range(0,180)));
             Vector3 force = new Vector3(xForce, yForce, zForce);
             rb.velocity = force;
         }
